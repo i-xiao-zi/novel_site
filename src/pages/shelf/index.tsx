@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from '../footer';
 import Header from '../header';
-import { CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { CardActionArea, CardMedia, Grid } from '@mui/material';
 
 const Setting: React.FC = () => {
   return (
