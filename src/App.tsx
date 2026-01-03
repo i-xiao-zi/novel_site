@@ -1,35 +1,59 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { HashRouter, Route, Routes } from 'react-router';
 import { ThemeProvider } from '@mui/material';
-import Home from './pages/home';
-import HomeSearch from './pages/home/search';
-import Setting from './pages/setting';
-import Shelf from './pages/shelf';
-import Spider from './pages/spider';
-import SpiderAdd from './pages/spider/add';
-import Reader from './pages/reader';
-import theme from './theme';
+import Home from '@/pages/home';
+import HomeSearch from '@/pages/home/search';
+import Setting from '@/pages/setting';
+import Shelf from '@/pages/shelf';
+import Spider from '@/pages/spider';
+import SpiderAdd from '@/pages/spider/add';
+import Reader from '@/pages/reader';
+import theme from '@/theme';
+import store from './store';
+import HomeCover from './pages/home/cover';
+import HomeChapter from './pages/home/chapter';
+import VConsole from 'vconsole';
+import SpiderInfo from './pages/spider/info';
+import BookCover from './pages/shelf/cover';
+import ShelfChapter from './pages/shelf/chapter';
+import Player from './pages/player';
+
 
 const App: React.FC = () => {
+  React.useEffect(() => {
+    new VConsole();
+  }, [])
   return (
-    <ThemeProvider theme={theme}>
-      <HashRouter>
-        <Routes>
-          <Route path="/">
-            <Route index element={<Home />} />
-            <Route path="/home/search" element={<HomeSearch />} />
-          </Route>
-          <Route path="/shelf" element={<Shelf />} />
-          <Route path="/setting" element={<Setting />} />
-          <Route path="/spider">
-            <Route index element={<Spider />} />
-            <Route path="/spider/add" element={<SpiderAdd />} />
-          </Route>
-          <Route path="/reader" element={<Reader />} />
-        </Routes>
-      </HashRouter>
-    </ThemeProvider>
+    <Provider store={store}>
+      
+      <ThemeProvider theme={theme}>
+        <HashRouter>
+          <Routes>
+            <Route path="/">
+              <Route index element={<Home />} />
+              <Route path="/home/search" element={<HomeSearch />} />
+              <Route path="/home/cover" element={<HomeCover />} />
+              <Route path="/home/chapter" element={<HomeChapter />} />
+            </Route>
+            <Route path="/shelf">
+              <Route index element={<Shelf />} />
+              <Route path="/shelf/cover/:id" element={<BookCover />} />
+              <Route path="/shelf/chapter/:id" element={<ShelfChapter />} />
+            </Route>
+            <Route path="/setting" element={<Setting />} />
+            <Route path="/spider">
+              <Route index element={<Spider />} />
+              <Route path="/spider/add" element={<SpiderAdd />} />
+              <Route path="/spider/:id" element={<SpiderInfo />} />
+            </Route>
+            <Route path="/reader" element={<Reader />} />
+            <Route path="/player" element={<Player />} />
+          </Routes>
+        </HashRouter>
+      </ThemeProvider>
+    </Provider>
   )
 }
 
-export default App
+export default App;

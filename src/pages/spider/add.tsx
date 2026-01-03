@@ -1,7 +1,7 @@
-import { ChevronLeftOutlined } from '@mui/icons-material'
+import { ChevronLeftOutlined, ExpandMoreOutlined } from '@mui/icons-material'
 import React from 'react'
 import Header from '../header'
-import { Button } from '@mui/material'
+import { Accordion, AccordionDetails, AccordionSummary, Button, FormControl, FormHelperText, Input, InputLabel, TextField, Typography } from '@mui/material'
 
 const SpiderAdd: React.FC = () => {
   return (
@@ -11,8 +11,92 @@ const SpiderAdd: React.FC = () => {
         title="添加爬虫"
         right={<Button>添加</Button>}
       />
-      <main>
-        SpiderAdd
+      <main className='p-2'>
+        <form>
+          <Accordion>
+            <AccordionSummary expandIcon={<ExpandMoreOutlined />}>
+              <Typography component="span">站点</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <FormControl fullWidth margin="normal">
+                <InputLabel htmlFor="email">名称</InputLabel>
+                <Input name="name" />
+              </FormControl>
+              <FormControl fullWidth margin="normal">
+                <InputLabel htmlFor="email">URL</InputLabel>
+                <Input name="url" type="email" required />
+              </FormControl>
+              <FormControl fullWidth margin="normal">
+                <InputLabel htmlFor="email">请求头</InputLabel>
+                <Input name="headers" type="email" required />
+              </FormControl>
+              <FormControl fullWidth margin="normal">
+                <InputLabel htmlFor="email">状态</InputLabel>
+                <Input name="status" type="email" required />
+              </FormControl>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionSummary expandIcon={<ExpandMoreOutlined />}>
+              <Typography component="span">搜索</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <FormControl fullWidth margin="normal">
+                <InputLabel htmlFor="email">邮箱地址</InputLabel>
+                <Input id="email" name="email" type="email" required />
+              </FormControl>
+              <FormControl fullWidth margin="normal">
+                <InputLabel htmlFor="email">邮箱地址</InputLabel>
+                <Input id="email" name="email" type="email" required />
+              </FormControl>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionSummary expandIcon={<ExpandMoreOutlined />}>
+              <Typography component="span">封面</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <FormControl fullWidth margin="normal">
+                <InputLabel htmlFor="email">邮箱地址</InputLabel>
+                <Input id="email" name="email" type="email" required />
+              </FormControl>
+              <FormControl fullWidth margin="normal">
+                <InputLabel htmlFor="email">邮箱地址</InputLabel>
+                <Input id="email" name="email" type="email" required />
+              </FormControl>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionSummary expandIcon={<ExpandMoreOutlined />}>
+              <Typography component="span">分页</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <FormControl fullWidth margin="normal">
+                <InputLabel htmlFor="email">邮箱地址</InputLabel>
+                <Input id="email" name="email" type="email" required />
+              </FormControl>
+              <FormControl fullWidth margin="normal">
+                <InputLabel htmlFor="email">下一页</InputLabel>
+                <Input id="email" name="email" type="email" required />
+              </FormControl>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionSummary expandIcon={<ExpandMoreOutlined />}>
+              <Typography component="span">章节</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <FormControl fullWidth margin="normal">
+                <InputLabel htmlFor="email">标题</InputLabel>
+                <Input id="email" name="email" type="email" required />
+              </FormControl>
+              <FormControl fullWidth margin="normal">
+                <InputLabel htmlFor="email">内容</InputLabel>
+                <Input id="email" name="email" type="email" required />
+              </FormControl>
+            </AccordionDetails>
+          </Accordion>
+        </form>
       </main>
     </>
   )

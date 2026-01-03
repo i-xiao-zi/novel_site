@@ -1,13 +1,16 @@
 import React from 'react';
-import Layout from '../layout';
+import Header from '../header';
+import Footer from '../footer';
 
 const Setting: React.FC = () => {
   return (
-    <Layout>
+    <>
+      <Header title="设置" />
       <main>
         settings
       </main>
-    </Layout>
+      <Footer />
+    </>
   )
 }
 
